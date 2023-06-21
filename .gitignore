@@ -36,3 +36,6 @@
 /build-debug
 /build-release
 /build-reldbg
+
+# Clangd cache
+/.cache
