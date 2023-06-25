@@ -34,6 +34,8 @@ set(CMAKE_MODULE_PATH
   ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules
 )
 
+include(FindDeps)
+
 # [Dump CompileCommands]
 # Generate a CompilationDatabase (compile_commands.json file) for our build,
 # for use by clang_complete, YouCompleteMe, etc.
