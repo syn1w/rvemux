@@ -13,6 +13,8 @@ public:
 
   u64 getEntry() const { return MMU.getEntry(); }
 
+  const MemManagerUnit &getMMU() const { return MMU; }
+
 private:
   MemManagerUnit MMU;
   ProgramState State;

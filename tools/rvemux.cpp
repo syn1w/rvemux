@@ -12,6 +12,9 @@ int main(int Argc, char **Argv) {
   Machine M;
   M.loadProgram(Argv[1]);
   printf("entry: 0x%lx\n", M.getEntry());
+  printf("host alloc: 0x%lx\n", M.getMMU().getHostAlloc());
+  printf("guest alloc: 0x%lx\n", M.getMMU().getGuestAlloc());
+  printf("base address: 0x%lx\n", M.getMMU().getBaseAddress());
 
   return 0;
 }
