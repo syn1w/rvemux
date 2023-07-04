@@ -2,16 +2,22 @@
 #define RVEMUX_MACHINE_STATE_HPP
 
 #include "Basic/Types.hpp"
+#include "Machine/Register.hpp"
 
 namespace rvemux {
 
-static constexpr std::size_t NumGPRegisters = 32;
-
 struct ProgramState {
   // General purpose registers
-  u64 GPRegs[NumGPRegisters];
+  u64 GPRegs[GPRegister::NumGPRegKinds];
   // Program counter
   u64 PC;
+
+  enum ExitReasonKind {
+    None,
+    DirectBranch,
+    IndirectBranch,
+    Syscall,
+  } ExitReason;
 };
 
 } // namespace rvemux

@@ -10,6 +10,15 @@ namespace rvemux {
 
 class MemManagerUnit {
 public:
+  static constexpr u64 GuestMemoryOffset = 0x0888'0000'0000ULL;
+
+  static u64 toHost(u64 guestAddr) { return guestAddr + GuestMemoryOffset; }
+  static u64 toGuest(u64 hostAddr) { return hostAddr - GuestMemoryOffset; }
+
+  static u64 roundDown(u64 x, u64 k) { return x & (-k); }
+  static u64 roundUp(u64 x, u64 k) { return (x + k - 1) & -k; }
+
+public:
   void loadELF(const char *Program);
 
   u64 getEntry() const { return Entry; }

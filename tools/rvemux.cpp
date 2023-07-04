@@ -1,6 +1,7 @@
 #include "Basic/Error.hpp"
 #include "Machine/Machine.hpp"
 
+#include <cassert>
 #include <cstdio>
 
 using namespace rvemux;
@@ -15,6 +16,11 @@ int main(int Argc, char **Argv) {
   printf("host alloc: 0x%lx\n", M.getMMU().getHostAlloc());
   printf("guest alloc: 0x%lx\n", M.getMMU().getGuestAlloc());
   printf("base address: 0x%lx\n", M.getMMU().getBaseAddress());
+
+  while (true) {
+    ProgramState::ExitReasonKind Reason = M.step();
+    assert(Reason == rvemux::ProgramState::Syscall);
+  }
 
   return 0;
 }

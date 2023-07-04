@@ -3,11 +3,19 @@ set(MACHINE_INCLUDE_DIR
 )
 
 add_library(Machine
+  Decoder.cpp
+  Instruction.cpp
+  Interpreter.cpp
   Machine.cpp
   MMU.cpp
 
+  ${MACHINE_INCLUDE_DIR}/Decoder.hpp
+  ${MACHINE_INCLUDE_DIR}/Instruction.hpp
+  ${MACHINE_INCLUDE_DIR}/Interpreter.hpp
   ${MACHINE_INCLUDE_DIR}/Machine.hpp
+  ${MACHINE_INCLUDE_DIR}/MMU.hpp
   ${MACHINE_INCLUDE_DIR}/ProgramState.hpp
+  ${MACHINE_INCLUDE_DIR}/Register.hpp
 )
 
 target_include_directories(Machine

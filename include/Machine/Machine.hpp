@@ -12,8 +12,9 @@ public:
   void loadProgram(const char *Program);
 
   u64 getEntry() const { return MMU.getEntry(); }
-
   const MemManagerUnit &getMMU() const { return MMU; }
+
+  ProgramState::ExitReasonKind step();
 
 private:
   MemManagerUnit MMU;
